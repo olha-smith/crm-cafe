@@ -1,25 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import MenuItem from "./MenuItem";
+
+function httpGet(theUrl) {
+    const xmlHttp = new XMLHttpRequest();
+    xmlHttp.open( "GET", theUrl, false);
+    xmlHttp.send( null );
+    return xmlHttp.responseText;
+}
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const menuItems = JSON.parse(httpGet('https://edc699c3-6045-4324-9406-69e6cfeb1671.mock.pstmn.io/menu'));
+    const firstItem = menuItems[0];
+
+    return (
+        <main id="main">
+            <MenuItem image={firstItem.image}
+                        name={firstItem.name}
+                        price={firstItem.price/100}
+                        weight={firstItem.weight}
+                        ingredients={firstItem.ingridients}
+                        isAvailable={firstItem.isAvailable}
+                        id={firstItem.id}
+                        category={firstItem.category}
+            />
+
+        </main>
+    );
 }
 
 export default App;

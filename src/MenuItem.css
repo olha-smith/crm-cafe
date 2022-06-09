@@ -1,0 +1,20 @@
+img {
+    height: 20em;
+    width: 20em;
+}
+
+h1 {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+button {
+    border: none;
+    background-color: lightgrey;
+    padding: .5em 1em;
+}
+
+.menu-item {
+    width: 20em;
+    margin: 2em;
+}
