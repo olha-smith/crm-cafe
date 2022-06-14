@@ -8,7 +8,7 @@ function httpGet(theUrl) {
 }
 
 function App() {
-    const menuItems = JSON.parse(httpGet('https://edc699c3-6045-4324-9406-69e6cfeb1671.mock.pstmn.io/menu'));
+    const menuItems = JSON.parse(httpGet('http://localhost:8080/api/v1/menu-items'));
 
     return (
         <main id="main">

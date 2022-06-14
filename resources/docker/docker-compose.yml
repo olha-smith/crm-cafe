@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+  cafe-crm:
+    image: 'apbogomazov/cafe-crm:latest'
+    container_name: cafe-crm
+    depends_on:
+      - postgres
+    ports:
+      - '8080:8080'
+    networks:
+      - cafe-network
+
+  postgres:
+    image: 'postgres:latest'
+    container_name: postgres
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+    networks:
+      - cafe-network
+
+networks:
+  cafe-network:
+    driver: bridge
