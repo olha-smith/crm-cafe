@@ -1,8 +1,7 @@
 import React from 'react';
-import axios from "axios";
 import MenuItem from "./MenuItem";
+import {addMenuItem, getMenuItems} from "./axiosClient";
 
-const baseURL = "http://localhost:8080/api/v1/menu-items";
 
 export default class MenuItems extends React.Component {
     state = {
@@ -10,11 +9,13 @@ export default class MenuItems extends React.Component {
     }
 
     componentDidMount() {
-        axios.get(baseURL)
-            .then(response => {
-                const menuItems = response.data;
-                this.setState({ menuItems });
-            })
+        getMenuItems().then(menuItems => this.setState({ menuItems }))
+    }
+
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        if (this.state !== this.prevState) {
+            getMenuItems().then(menuItems => this.setState({ menuItems }))
+        }
     }
 
     render() {
@@ -32,6 +33,7 @@ export default class MenuItems extends React.Component {
                               category={item.category}
                     />
                 )}
+                <button onClick={addMenuItem}>Add MenuItem</button>
             </main>
         )
     }
