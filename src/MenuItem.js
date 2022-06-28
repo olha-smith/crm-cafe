@@ -1,4 +1,7 @@
 import "./MenuItem.css"
+import {deleteMenuItem} from "./axiosClient";
+
+const accessLevel = "ADMIN";
 
 function MenuItem(props) {
     return (
@@ -14,6 +17,9 @@ function MenuItem(props) {
             </div>
             <div className="menu-item-addButton">
                 <ItemAddToCartButton isAvailable={props.isAvailable} name={props.name}/>
+            </div>
+            <div className="menu-item-deleteButton">
+                <ItemDeleteButton id={props.id}/>
             </div>
         </div>
     )
@@ -49,6 +55,12 @@ function ItemAddToCartButton(props) {
         return <button>Add to cart</button>;
     } else {
         return <button disabled>Out of Stock</button>;
+    }
+}
+
+function ItemDeleteButton(props) {
+    if (accessLevel === "ADMIN") {
+        return <button onClick={() => deleteMenuItem(props.id)}>Delete Item</button>
     }
 }
 
