@@ -1,5 +1,5 @@
 import "./MenuItem.css"
-import {deleteMenuItem} from "./axiosClient";
+import {deleteMenuItem} from "./AxiosClient";
 
 const accessLevel = "ADMIN";
 

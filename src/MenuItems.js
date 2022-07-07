@@ -1,6 +1,6 @@
 import React from 'react';
 import MenuItem from "./MenuItem";
-import {addMenuItem, getMenuItems} from "./axiosClient";
+import {addMenuItem, getMenuItems} from "./AxiosClient";
 
 
 export default class MenuItems extends React.Component {
