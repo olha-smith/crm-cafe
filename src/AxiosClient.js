@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const BASE_URL = "http://localhost:8080/api/v1"
-const MENU_ITEMS = "/menu-items"
+export const MENU_ITEMS = "/menu-items"
 const TIMEOUT = 2000
 
 const axiosClient = axios.create({
@@ -18,20 +18,23 @@ export async function getMenuItems() {
     return response.data;
 }
 
-export function getMenuItem(id) {
-    return axiosClient.get(`${MENU_ITEMS}/${id}`).then(response => response.data);
+export async function getMenuItem(id) {
+    const response = await axiosClient.get(`${MENU_ITEMS}/${id}`);
+    return response.data;
 }
 
-export function addMenuItem() {
-    return axiosClient.post(`${MENU_ITEMS}`).then(response => response.data);
+export async function createMenuItem() {
+    const response = await axiosClient.post(`${MENU_ITEMS}`);
+    return response.data;
 }
 
-export function deleteMenuItem(id) {
-    return axiosClient.delete(`${MENU_ITEMS}/${id}`);
+export async function deleteMenuItem(id) {
+    await axiosClient.delete(`${MENU_ITEMS}/${id}`);
 }
 
-export function patchMenuItem(id, data) {
-    return axiosClient.patch(`${MENU_ITEMS}/${id}`, data).then(response => response.data);
+export async function patchMenuItem(id, data) {
+    const response = await axiosClient.patch(`${MENU_ITEMS}/${id}`, data);
+    return response.data;
 }
 
 export {axiosClient};

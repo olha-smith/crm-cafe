@@ -1,6 +1,6 @@
 import React from 'react';
 import MenuItem from "./MenuItem";
-import {addMenuItem, getMenuItems} from "./AxiosClient";
+import {createMenuItem, getMenuItems} from "./AxiosClient";
 
 
 export default class MenuItems extends React.Component {
@@ -33,7 +33,7 @@ export default class MenuItems extends React.Component {
                               category={item.category}
                     />
                 )}
-                <button onClick={addMenuItem}>Add MenuItem</button>
+                <button onClick={createMenuItem}>Create MenuItem</button>
             </main>
         )
     }
