@@ -69,4 +69,3 @@ it('patchMenuItem - success', async () => {
 
     expect(response).toStrictEqual(updatedMenuItem);
 });
-
