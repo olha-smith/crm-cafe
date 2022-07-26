@@ -1,10 +1,15 @@
 img {
-    height: 20em;
-    width: 20em;
+    height: 130px;
+    width: 157.76px;
 }
 
 h1 {
-    font-size: 20px;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+h2 {
+    font-size: 12px;
     font-weight: bold;
 }
 
@@ -16,5 +21,4 @@ button {
 
 .menu-item {
     width: 20em;
-    margin: 2em;
 }

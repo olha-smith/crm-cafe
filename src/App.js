@@ -1,8 +1,12 @@
-import MenuItems from "./MenuItems";
+import Menu from "./Menu";
+import "./app-wrapper.css"
 
 function App() {
     return (
-        <MenuItems />
+        <div className="app-wrapper">
+            <Menu />
+        </div>
+
     );
 }
 

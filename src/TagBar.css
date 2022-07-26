@@ -1,0 +1,18 @@
+.tag-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .6em;
+    width: inherit;
+}
+
+.tag {
+    background-color: lavender;
+    border-radius: 1em;
+    height: max-content;
+    width: max-content;
+    padding: .5em 1em;
+}
+
+.tag:focus {
+    background-color: hotpink;
+}

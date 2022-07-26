@@ -1,5 +1,5 @@
 import "./MenuItem.css"
-import {deleteMenuItem} from "./AxiosClient";
+import {createMenuItem, deleteMenuItem} from "./AxiosClient";
 
 const accessLevel = "ADMIN";
 
@@ -7,7 +7,7 @@ function MenuItem(props) {
     return (
         <div className="menu-item" id={props.id} category={props.category}>
             <div className="menu-item-description">
-                <ItemImage image={props.image}/>
+                <ItemImage image={props.image} />
                 <ItemName name={props.name} />
                 <ItemPrice price={props.price} />
                 <div className="menu-item-description-more">
@@ -16,10 +16,10 @@ function MenuItem(props) {
                 </div>
             </div>
             <div className="menu-item-addButton">
-                <ItemAddToCartButton isAvailable={props.isAvailable} name={props.name}/>
+                <ItemAddToCartButton isAvailable={props.isAvailable} name={props.name} />
             </div>
             <div className="menu-item-deleteButton">
-                <ItemDeleteButton id={props.id}/>
+                <ItemDeleteButton id={props.id} />
             </div>
         </div>
     )
@@ -35,11 +35,11 @@ function ItemImage(props) {
 }
 
 function ItemName(props) {
-    return <h1>{props.name}</h1>;
+    return <h2>{props.name}</h2>;
 }
 
 function ItemPrice(props) {
-    return <h1>{props.price.toFixed(2)} USD</h1>;
+    return <h2>{props.price.toFixed(2)} USD</h2>;
 }
 
 function ItemWeight(props) {
@@ -61,6 +61,12 @@ function ItemAddToCartButton(props) {
 function ItemDeleteButton(props) {
     if (accessLevel === "ADMIN") {
         return <button onClick={() => deleteMenuItem(props.id)}>Delete Item</button>
+    }
+}
+
+export function ItemCreateButton() {
+    if (accessLevel === "ADMIN") {
+        return <button onClick={createMenuItem}>Create MenuItem</button>
     }
 }
 

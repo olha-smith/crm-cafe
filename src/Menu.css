@@ -1,0 +1,12 @@
+.menu-items {
+  margin: 0 auto;
+  width: inherit;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1.8em;
+}
+
+.menu-item-createButton {
+  margin: 0 30%;
+}
